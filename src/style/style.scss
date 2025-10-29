@@ -1,0 +1,29 @@
+@use "./defaultnullstyle";
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap");
+
+
+.App {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+  font-family: defaultnullstyle.$fontFamily;
+  color: defaultnullstyle.$mainColor;
+  height: 2000px;
+}
+
+.content {
+  flex: 1 1 auto;
+}
+
+[class*="__container"] {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: defaultnullstyle.$backgroundColor;
+}
