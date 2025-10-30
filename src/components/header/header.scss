@@ -1,0 +1,142 @@
+.menu {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #313131;
+    padding: 10px 0px;
+    a {
+      color: #afafaf;
+      text-decoration: none;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+    gap: 10px;
+    img {
+      width: auto;
+      height: auto;
+    }
+    border: 1px solid #955943;
+    border-radius: 5px;
+    &:hover {
+      border-color: #be8772;
+      color: #f5f5f5;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+  }
+
+  &__nav-item {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__nav-link {
+    &:hover {
+      color: #955943;
+      font-weight: 500;
+    //   text-decoration-line: underline;
+      transition: color 0.2s ease;
+    }
+    &.active-link{
+        color: #A9855F;
+      font-weight: 600;
+    }
+  }
+
+  &__nav-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(115, 103, 103, 1);
+    min-width: 160px;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.51);
+    z-index: 10;
+    a {
+      padding: 12px 16px;
+      display: block;
+    }
+    &:hover {
+      display: block;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 0px;
+    box-shadow: 0px 3px 7px rgba(49, 49, 49, 0.7);
+  }
+
+  &__bottom-search {
+    display: flex;
+    gap: 5px;
+    max-width: 500px;
+    padding: 10px;
+    input[type="text"] {
+      width: 400px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      outline: none;
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+    button {
+      border: none;
+      color: #f5f5f5;
+      font-size: 16px;
+      background-color: rgba(49, 49, 49, 0.7);
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(49, 49, 49, 0.8);
+        color: #ffffff;
+        transition: background-color 0.2s ease;
+      }
+    }
+  }
+
+  &__bottom-nav {
+    display: flex;
+    gap: 10px;
+    a {
+      color: #313131;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.menu__nav-item:hover .menu__nav-dropdown {
+  display: block;
+  a:hover {
+    color: #ffff;
+    font-weight: 600;
+    text-decoration-line: underline;
+    transition: color 0.2s ease;
+    // background-color: #f5f5f5;
+  }
+}
