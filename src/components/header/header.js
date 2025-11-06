@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import mainLogo from "../../assets/icons/icons8-movieLogo-48.png";
 import "./header.scss";
 
@@ -54,7 +54,8 @@ const Header = () => {
               id="search-input"
               placeholder="Search by movie title"
             />
-            <button id="search-button">Search</button>
+            <button id="search-button">
+              <Link to="/search">Search</Link></button>
           </div>
           <div className="menu__bottom-nav">
             <NavLink to="/collections" className={setActiveLink}>

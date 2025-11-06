@@ -7,7 +7,7 @@ import People from "../../pages/people/people";
 import Collections from "../../pages/collections/collections";
 import Popular from "../../pages/popular/popular";
 import TopRated from "../../pages/topRated/topRated";
-import Search from "../search/search";
+import Search from "../../pages/search/search";
 //components
 import { Layout } from "../../components/layout/layout";
 //images
@@ -18,11 +18,12 @@ function App() {
       <>
         {/* //routes */}
         <Routes>
-          <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="movies" element={<Movies />} />
             <Route path="tvshows" element={<TvShows />} />
             <Route path="people" element={<People />} />
+            <Route path="search" element={<Search />} />
             <Route path="collections" element={<Collections />} />
             <Route path="popular" element={<Popular />} />
             <Route path="toprated" element={<TopRated />} />

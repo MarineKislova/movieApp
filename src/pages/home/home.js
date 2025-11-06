@@ -1,3 +1,5 @@
+import AllTrending from "../../components/trendingList/trendingList";
+
 import "./home.scss";
 
 /* const home = () => {
@@ -25,7 +27,7 @@ function Home() {
                 </button>
               </div>
               <div className="trending__tab-content">
-                <div className="trending__cards" id="allTrending">1</div>
+                <AllTrending/>
                 <div className="trending__cards" id="moviesTrending">2</div>
                 <div className="trending__cards" id="tvShowsTrending">3</div>
               </div>
