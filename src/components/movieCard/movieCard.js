@@ -1,27 +1,7 @@
-import React, { Component } from "react";
-import Tooltip from "../movieTooltip/movieTooltip";
+import  { Component } from "react";
 import "./movieCard.scss";
 
 class MovieCard extends Component {
-  state = {
-    tooltipOpen: false,
-  };
-
-  cardRef = React.createRef();
-  toggleTooltip = () => {
-    const rect = this.cardRef.current.getBoundingClientRect();
-
-    this.setState((prev) => ({
-      tooltipOpen: !prev.tooltipOpen,
-      tooltipPos: {
-        top: rect.top + window.scrollY, // корректная вертикаль
-        left: rect.right + window.scrollX, // справа от карточки
-      },
-    }));
-    console.log("toggled");
-  };
-
-  closeTooltip = () => this.setState({ tooltipOpen: false });
   render() {
     const {
       id,
@@ -38,7 +18,6 @@ class MovieCard extends Component {
       genres,
       loading,
     } = this.props.data;
-    const { tooltipOpen, tooltipPos } = this.state;
 
     const titleCard = title ? title : name;
     const poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
@@ -64,13 +43,21 @@ class MovieCard extends Component {
         <div className="movie-card">
           <div className="movie-card__poster">
             <img src={poster} alt={titleCard} className="movie-card__img" />
-            <p
-              className="movie-card__overview"
-              onClick={this.toggleTooltip}
-              ref={this.cardRef}
-            >
+            <div className="movie-card__overview">
               ℹ
-            </p>
+              <div className="movie-card__tooltip">
+                <div className="movie-card__tooltip-content">
+                  <p className="movie-card__tooltip-title">{titleCard}</p>
+                  <p
+                    className="movie-card__tooltip-icon"
+                    style={{ backgroundColor: bgClass }}
+                  >
+                    {movieIcon}
+                  </p>
+                  <p className="movie-card__tooltip-overview">{overview}</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="movie-card__title">{titleCard}</div>
           <div className="movie-card__info">
@@ -99,23 +86,6 @@ class MovieCard extends Component {
             Watch on TMDB
           </a>
         </div>
-
-        <Tooltip open={tooltipOpen} position={tooltipPos}>
-          <div className="tooltip__tooltip-top">
-            <p
-              className="tooltip__tooltip-icon"
-              style={{ backgroundColor: bgClass }}
-            >
-              {movieIcon}
-            </p>
-            <p className="tooltip__tooltip-close" onClick={this.closeTooltip}>
-              &times;
-            </p>
-          </div>
-          <p className="tooltip__tooltip-title">{titleCard}</p>
-          <p className="tooltip__tooltip-overview">{overview}</p>
-          <p>Vote count: {vote_count}</p>
-        </Tooltip>
       </>
     );
   }

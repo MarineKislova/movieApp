@@ -13,13 +13,12 @@ const options = {
   },
 };
 
-class Trending {
-
+class TrendingService {
   getResource = async (url, option) => {
     let response = await fetch(url, option);
     if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
     const data = await response.json();
-     return data;
+    return data;
   };
 
   getAllTrending = (page) => {
@@ -44,4 +43,26 @@ class Trending {
   };
 }
 
-export default Trending;
+class GenresService {
+  getGenresMovies = async () => {
+    let response = await fetch(
+      `${BASE_URL}genre/movie/list?language=en-US`,
+      options
+    );
+    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+    const data = await response.json();
+    return data.genres;
+  };
+  getGenresTvShows = async () => {
+    let response = await fetch(
+      `${BASE_URL}genre/tv/list?language=en-US`,
+      options
+    );
+    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+    const data = await response.json();
+    console.log(data.genres);
+    return data.genres;
+  };
+}
+
+export { TrendingService, GenresService };

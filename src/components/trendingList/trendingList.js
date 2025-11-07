@@ -1,17 +1,18 @@
 import { Component } from "react";
-import Trending from "../../services/TMDBService";
+import { TrendingService } from "../../services/TMDBService";
 import MovieCard from "../movieCard/movieCard";
 
 class AllTrending extends Component {
   state = {
     items: [],
+    genres: [],
     loading: true,
   };
 
-  tmdbService = new Trending();
+  tmdbTrandingService = new TrendingService();
 
   componentDidMount() {
-    this.tmdbService.getAllTrending().then((data) => {
+    this.tmdbTrandingService.getAllTrending().then((data) => {
       this.setState({
         items: data.results || [],
         loading: false,
